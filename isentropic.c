@@ -22,19 +22,19 @@ int main(void){
 		" the saturation temperature for steam at that final pressure.\n\n"
 	);
 
-	double T = 400.; /* in Kelvin! */
+	double T = 300.; /* in Kelvin! */
 	double p = 1e5; /* = 1 bar */
 
 	fprintf(stderr,"Initial temperature = %f K, pressure = %f bar\n", T, p/1e5);
 
 	/* set a steam state of 1 bar, 400 K */
-	SteamState S = freesteam_set_pT(1e5, 400);
+	SteamState S = freesteam_set_pT(p, T);
 
 	double s = freesteam_s(S);
 	fprintf(stderr,"Entropy at initial state is %f kJ/kgK\n",s/1e3);
 
 	/* calculate a steam state with entropy from above and 10 bar pressure */
-	SteamState S2 = freesteam_set_ps(10e5, s);
+	SteamState S2 = freesteam_set_ps(p, s);
 
 	double T2 = freesteam_T(S2);
 	double p2 = freesteam_p(S2);
