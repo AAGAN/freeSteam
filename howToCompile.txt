@@ -1,0 +1,11 @@
+install gsl from the instructions in https://coral.ise.lehigh.edu/jild13/2016/07/11/hello/
+
+to build isentropic.c example run:
+g++ -std=c++11 isentropic.c steam_pT.c steam_ps.c region4.c region3.c region2.c region1.c zeroin.c viscosity.c steam.c solver2.c steam_ph.c steam_pv.c steam_pu.c steam_Tx.c steam_Ts.c surftens.c thcond.c derivs.c common.c bounds.c backwards.c b23.c -o isentropic -lgsl -lgslcblas -lm
+to run it run:
+./isentropic
+
+to build test.c tests run:
+g++ -std=c++11 test.c steam_pT.c steam_ps.c region4.c region3.c region2.c region1.c zeroin.c viscosity.c steam.c solver2.c steam_ph.c steam_pv.c steam_pu.c steam_Tx.c steam_Ts.c surftens.c thcond.c derivs.c common.c bounds.c backwards.c b23.c -o tests -lgsl -lgslcblas -lm
+to run it:
+./tests
